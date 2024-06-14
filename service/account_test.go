@@ -9,6 +9,9 @@ import (
 )
 
 func TestAuthenticateByUsernameAndPassword_Success(t *testing.T) {
+	//Run tests in parallel
+	t.Parallel()
+
 	container := test.PrepareForServiceTest()
 
 	service := NewAccountService(container)
@@ -22,6 +25,7 @@ func TestAuthenticateByUsernameAndPassword_Success(t *testing.T) {
 }
 
 func TestAuthenticateByUsernameAndPassword_EntityNotFound(t *testing.T) {
+	t.Parallel()
 	container := test.PrepareForServiceTest()
 
 	service := NewAccountService(container)
@@ -32,6 +36,7 @@ func TestAuthenticateByUsernameAndPassword_EntityNotFound(t *testing.T) {
 }
 
 func TestAuthenticateByUsernameAndPassword_AuthenticationFailure(t *testing.T) {
+	t.Parallel()
 	container := test.PrepareForServiceTest()
 
 	service := NewAccountService(container)
